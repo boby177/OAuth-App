@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import LoginButton from "./auth/LoginButton";
+import LogoutButton from "./auth/LogoutButton";
+import Challenges from "./Challenges";
+import Test from "./Test";
+
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Dashboard Auth App</h1>
       </header>
+      <div className="App-body">
+        <span>
+          <LoginButton />
+          <LogoutButton />
+        </span>
+        <Routes>
+          <Route path="/challenges" component={<Challenges />} />
+          <Route path="/test" component={<Test />} />
+        </Routes>
+      </div>
     </div>
   );
 }
