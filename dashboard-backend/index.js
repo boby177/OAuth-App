@@ -5,9 +5,10 @@ const oAuth = require("../dashboard-backend/middlewares/oAuth");
 const port = process.env.PORT || 3001;
 const cors = require("cors");
 const corsOptions = {
-  origin: "*",
+  origin: "http://localhost:3000",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
+  methods: ["GET", "POST", "PUT", "DELETE"],
 };
 app.use(cors(corsOptions));
 

@@ -1,11 +1,16 @@
 const express = require("express");
 var cors = require("cors");
 const app = express();
-app.use(cors());
 const { auth } = require("express-oauth2-jwt-bearer");
 const guard = require("express-jwt-permissions")();
 
 const port = process.env.PORT || 8080;
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 const jwtCheck = auth({
   audience: "https://challenges-api.com",
